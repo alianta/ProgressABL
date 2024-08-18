@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="keywords" content="OpenEdge,ABL,4GL,Progress, Bisquit, ИБС Бисквит,АБС Бисквит,BIS, БИС,язык программирование ABL, язык программирования 4GL, база данных openedge
+">
+	<meta name="rights" content="progress-abl:2012-2016">
+	<meta name="robots" content="index, follow">
+	<meta name="description" content="Сайт программирования на языке OpenEdge ABL (4GL). Программирование в ИБС Бисквит">
+  <link href="../css/normalize.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+  <title>OpenEdge ABL</title>
+</head>
+<body class="page-body">
+  <div class="page-container">
+    <header class="main-header">
+      <div class="logo">
+        <a href="#" title="progress-abl">OpenEdge ABL</a>
+      </div>
+      <nav class="main-navigation">
+        <ul class="site-navigation">
+          <li class="site-navigation__item"><a class="site-navigation__link" href="../index.html">Главная</a></li>
+          <li class="site-navigation__item"><a class="site-navigation__link" href="./abl-basics.html">Основы ABL</a></li>
+          <li class="site-navigation__item"><a class="site-navigation__link" href="./database.html">Базы данных</a></li>
+          <li class="site-navigation__item active"><a class="site-navigation__link" href="#">ИБС Бисквит</a></li>
+          <li class="site-navigation__item"><a class="site-navigation__link" href="hotels.html">Технологии и решения</a></li>
+          <li class="site-navigation__item"><a class="site-navigation__link" href="hotels.html">Разное</a></li>
+          <li class="site-navigation__item"><a class="site-navigation__link" href="about-bis\about-bis.html">Про "Бисквит"</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="content-container">
+      <section class="content-container__item useful-links">
+        <h3>Полезные ссылки OpenEdge</h3>
+        <ul class="weblinks">
+          <li>
+          <a href="http://www.oehive.org/" rel="follow"> The OpenEdge Hive</a>		</li>
+          <li>
+          <a href="http://psdn.com/" rel="follow">Progress Communities</a>		</li>
+          <li>
+          <a href="http://www.openedge.ru/" rel="follow">Администрирование OpenEdge</a>		</li>
+          <li>
+          <a href="http://pro4gl.ru/" rel="follow">Всё об OpenEdge RDBMS</a>		</li>
+          <li>
+          <a href="http://forum.csbi-progress.ru/" rel="follow">Форум OpenEdge</a>		</li>
+        </ul>
+        <h3>Полезные ссылки ИБС "Бисквит"</h3>
+        <ul class="weblinks">
+          <a href="http://www.bis.ru/" rel="follow">ИБС "Бисквит"</a>		</li>
+        </ul>
+      </section>
+      <section class="content-container__item main-content">
+        <ul class="content-navigation">
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Базовые функции и процедуры </a>
+            <p class="content-navigation__link-info">
+              В статье описаны функции и процедуры являющиеся базовыми в АБС "Бисквит"
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Полезные мелочи</a>
+            <p class="content-navigation__link-info">
+              Статья посвящена готовым решениям в АБС Бисквит, позволяющие существенно упростить и приукрасить собственные процедуры
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Остатки и обороты по счетам</a>
+            <p class="content-navigation__link-info">
+              В статье описаны способы получения остатков и оборотов по счетам
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Библиотеки интерфейсов</a>
+            <p class="content-navigation__link-info">
+              Статья посвящена работе с библиотеками интерфейса
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">PREVIEW построение отчетов</a>
+            <p class="content-navigation__link-info">
+              В статье дано описание формирования отчетов в АБС "Бисквит" на основе инструмента PREVIEW
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Печать BusPC</a>
+            <p class="content-navigation__link-info">
+              В статье описан способы создания отчетов с последующей печатью в Word или Excel посредством программы BisPC
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">LaTex</a>
+            <p class="content-navigation__link-info">
+              В статье описан способ использования печати LaTex
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Библиотеки функций шаблонов отчетов</a>
+            <p class="content-navigation__link-info">
+              Создание процедур с функциями формирования тегов для построения отчетов открытой системы печати.
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <!-- Бывшая строаница 2 -->
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Импорт-экспорт данных АБС в DBF</a>
+            <p class="content-navigation__link-info">
+              В статье описан процесс импорта-экспорта данных АБС в DBF файлы
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Расчет контрольных ключей</a>
+            <p class="content-navigation__link-info">
+              Процедуры расчета контрольных ключей счета, ИНН, ОКПО и д.р.
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Особенности однофилиальной и многофилиальной базы АБС БИСКВИТ</a>
+            <p class="content-navigation__link-info">
+              В статье рассмотрены основные особенности разработки процедур для однофилиальной и многофилиальной базы ИБС БИСквит.
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Планировщик задач</a>
+            <p class="content-navigation__link-info">
+              Планировщик задач ИБС БИСквит
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Кэширование данных в АБС Бисквит</a>
+            <p class="content-navigation__link-info">
+              Система кэширования данных в АБС Бисквит
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Картотеки расчетных счетов</a>
+            <p class="content-navigation__link-info">
+              Картотеки расчетных счетов 1 и 2 в АБС Бисквит
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Библиотека по работе с блокированными объектами</a>
+            <p class="content-navigation__link-info">
+              Библиотека процедур и функций по работе с блокированными объектами
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Библиотека работы с универсальными справочниками</a>
+            <p class="content-navigation__link-info">
+              Библиотека процедур и функций по работе с универсальными справочниками
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <!-- Бывшая строаница 3 -->
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Библиотека работы с датами</a>
+            <p class="content-navigation__link-info">
+              Библиотека работы с датами
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Библиотека работы со строками и списками</a>
+            <p class="content-navigation__link-info">
+              Библиотека функции и процедур для работы со строками и списками
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Библиотека работы с метасхемой</a>
+            <p class="content-navigation__link-info">
+              Библиотека функций и процедур работы с метасхемой pp-xclas
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Библиотека по работе с Instace</a>
+            <p class="content-navigation__link-info">
+              Библиотека по работе с Instace
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Процедуры для работы с фильтрами</a>
+            <p class="content-navigation__link-info">
+              Процедуры и функции по работе с фильтрами
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Библиотека работы с клиентами</a>
+            <p class="content-navigation__link-info">
+              Библиотека функции работы с клиентами
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Библиотека работы со счетами</a>
+            <p class="content-navigation__link-info">
+              Библиотека функции и процедур работы со счетами pp-acct.p
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Метасхема АБС Бисквита</a>
+            <p class="content-navigation__link-info">
+              Метасхема АБС Бисквита
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <!-- Бывшая строаница 4 -->
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">INSTANCE - экземпляр объекта</a>
+            <p class="content-navigation__link-info">
+              Работа с объектами метасхемы АБС Бисквит посредством INSTANCE
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Права пользователя</a>
+            <p class="content-navigation__link-info">
+              Определение прав пользователя на объекты АБС Бисквит
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Браузер классов метасхемы</a>
+            <p class="content-navigation__link-info">
+              Вызов браузера классов метасхемы АБС Бисквит
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Вызов браузеров объектов классов метасхемы</a>
+            <p class="content-navigation__link-info">
+              Вызов браузеров объектов классов метасхемы с помощью browseld.p
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Метод BROWSE классов метасхемы (Navigate.cqr)</a>
+            <p class="content-navigation__link-info">
+              В данной статье рассмотрен принцип создания своих браузеров на основе Navigate.cqr
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Метод brwquery классов метасхемы</a>
+            <p class="content-navigation__link-info">
+              Построение процедуры метода brwquery
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Метод Join классов метасхемы</a>
+            <p class="content-navigation__link-info">
+              Процедура метода Join классов метасхемы
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Метод fltstruct классов метасхемы</a>
+            <p class="content-navigation__link-info">
+              Процедура метода fltstruct описывающей структуру фильтра браузера построенного на основе navigate.cqr
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <!-- Бывшая строаница 5 -->
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Вызов экранных форм классов метасхемы</a>
+            <p class="content-navigation__link-info">
+              Универсальный механизм formld.p вызова процедур методов класса определяющих экранные формы по работе с объектами класса
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Метод Form классов метасхемы</a>
+            <p class="content-navigation__link-info">
+              Процедура метода Form классов метасхемы
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Модули АБС Бисквит</a>
+            <p class="content-navigation__link-info">
+              В данной статье мы поговорим о создание собственного модуля в АБС Бисквит
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Браузер доп. реквизитов объектов классов метасхемы</a>
+            <p class="content-navigation__link-info">
+              Браузер доп. реквизитов объектов классов метасхемы
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Метод browse реквизита класса метасхемы</a>
+            <p class="content-navigation__link-info">
+              Процедура метода browse реквизита класса метасхемы
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Классификаторы и универсальные справочники</a>
+            <p class="content-navigation__link-info">
+              Классификаторы и универсальные справочники
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Стандартные и универсальные транзакции в АБС Бисквит</a>
+            <p class="content-navigation__link-info">
+              Стандартные и универсальные транзакции в АБС Бисквит
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Проверка реквизитов документов</a>
+            <p class="content-navigation__link-info">
+              Механизм проверки реквизитов импортируемых/экспортируемых документов.
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <!-- Бывшая строаница 6 -->
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Стандартные транзакции: импорт документов</a>
+            <p class="content-navigation__link-info">
+              Пишем свой импорт документов в АБС из внешних систем
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Библиотеки парсерных функций</a>
+            <p class="content-navigation__link-info">
+              Пишем свои библиотеки парсерных функций универсальных транзакций.
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Универсальные транзакции: импорт-экспорт данных</a>
+            <p class="content-navigation__link-info">
+              Обмен с внешними система посредством универсальных транзакций
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Вызов универсальных транзакций из процедур ABL</a>
+            <p class="content-navigation__link-info">
+              Вызов универсальных транзакций с предустановленными значениями из процедуры.
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Кредитные договора</a>
+            <p class="content-navigation__link-info">
+              Структура кредитного договора
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Графики кредитного договора</a>
+            <p class="content-navigation__link-info">
+              Графики платежей по кредитному договору
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Информация по вкладам физ. лиц</a>
+            <p class="content-navigation__link-info">
+              Информация по вкладам физ. лиц
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+          <li class="content-navigation__item">
+            <a class="content-navigation__link" href="#">Модуль Финансовая отчетность и анализ</a>
+            <p class="content-navigation__link-info">
+              Модуль Финансовая отчетность и анализ
+            </p>
+            <a class="content-navigation__link-button" href="#">Подробнее...</a>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer class="main-footer">
+      Копия сайта http://www.progress-abl.ru/   2024
+    </footer>
+  </div>
+</body>
+</html>
