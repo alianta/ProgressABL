@@ -1,3 +1,7 @@
+html {
+  height: 100%;
+}
+
 .page {
   height: 100%;
 }
@@ -76,6 +80,10 @@ a {
   padding: 20px;
 }
 
+.useful-links {
+  width: 22%;
+  min-width: 22%;
+}
 .content-navigation{
   list-style: none;
   padding: 0 10px;
@@ -111,4 +119,12 @@ a {
 
 .content-navigation__link-button:hover{
   background-color: #2C79B3;
+}
+
+.main-footer {
+  text-align: center;
+  font-size: 20px;
+  background-color: #2C79B3;
+  padding: 20px;
+  color: #C3DBED;
 }
