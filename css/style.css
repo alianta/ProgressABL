@@ -84,6 +84,13 @@ a {
   width: 22%;
   min-width: 22%;
 }
+
+.quote {
+  border-top: 3px solid #2C79B3;
+  margin: 0;
+  padding: 16px 40px;
+}
+
 .content-navigation{
   list-style: none;
   padding: 0 10px;
