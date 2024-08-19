@@ -85,6 +85,12 @@ a {
   min-width: 22%;
 }
 
+.main-content{
+  font-family: "Lucida Grande", Arial, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
 .quote {
   border-top: 3px solid #2C79B3;
   margin: 0;
@@ -134,4 +140,18 @@ a {
   background-color: #2C79B3;
   padding: 20px;
   color: #C3DBED;
+}
+
+/*rounding-methods.html*/
+.code {
+  background-color: #ffc;
+  border-left: 5px solid #ccc;
+}
+
+.page-list{
+  list-style: none;
+}
+
+.content-list{
+  list-style: none;
 }

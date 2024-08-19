@@ -53,112 +53,110 @@
       </section>
       <section class="content-container__item main-content">
         <h3 class="content-header">Методы округления</h3>
+        Существуют несколько методов округления числа:
+        <ul calss="page-list">
+          <li class="page-list__item"><a href="#closest-whole">Округление к ближайшему целому</a></li>
+          <li class="page-list__item"><a href="#smolest-whole">Округление к меньшему</a></li>
+          <li class="page-list__item"><a href="#bigest-whole">Округление к большему</a></li>
+          <li class="page-list__item"><a href="#bigest-mod-whole">Округление к меньшему по модулю</a></li>
+          <li class="page-list__item"><a href="#smolest-mod-whole">Округление к большему по модулю</a></li>
+        </ul>
+        <div class="chapter">
+          <h4 class="chapter__header" name="closest-whole">Округление к ближайшему целому</h4>
+          Округление к ближайшему целому до N-го знака осуществляется по следующему правилу:
+          <ul class="content-list moved">
+            <li class="content-list__item">если N+1 знак < 5, то N-ый знак остается без изменений, а все знаки после N-го отбрасываются (обнуляются);</li>
+            <li class="content-list__item">если N+1 знак > 5, то N-ый знак увеличивают на единицу, а все знаки после N-го отбрасываются (обнуляются).</li>
+          </ul>
+          Примеры округления до 2 знаков после запятой:
+          <ul class="content-list">
+            <li class="content-list__item">2.4545 → 2.45</li>
+            <li class="content-list__item">2.4564 → 2.46</li>
+          </ul>
+          По способам округления числа в случае когда N+1 знак равен 5, выделяются следующие виды округления к ближайшему целому:
+          <ul class="content-list">
+            <li class="content-list__item">Математическое округление</li>
+            <li class="content-list__item">Банковское округление</li>
+            <li class="content-list__item">Случайное округление</li>
+            <li class="content-list__item">Чередующееся округление</li>
+          </ul>
+          <p>
+            <strong>Математическое округление</strong> в случае если N+1 знак = 5 увеличивает N-й знак на единицу,  а все знаки после N-го отбрасываются (обнуляются). 
+            <br>
+            Пример математического округления до 2-х знаков после запятой:
+            <ul class="content-list">
+              <li class="content-list__item">2.4554 → 2.46</li>
+            </ul>
+            Данное округление в ABL реализовано в функции ROUND.
+            <br>
+            <br>
+            ROUND(iRnd, n)
+            <ul class="content-list">
+              <li class="content-list__item">iRnd - округляемое значение;</li>
+              <li class="content-list__item">n - знак до которого осуществляется округление.</li>
+            </ul>
+          </p>
+          <p>
+            <strong>Банковское округление</strong> отличается от математического тем, что предполагает округление в таком случае к ближайшему четному числу. Т.е. результатом округления числа 2.5 при математическом округлении будет 3, а при банковском 2.
+          </p>
+          <pre class="code">
+          <code>
+          FUNCTION BankRound RETURNS DECIMAL (INPUT iRnd AS DEC, INPUT n AS INT). 
+            DEF VAR ChkFor5 AS INTEGER NO-UNDO.
+            DEF VAR B_Round AS DECIMAL NO-UNDO.
 
-Существуют несколько методов округления числа:
-<ul>
-  <li><a href="#closest-whole">Округление к ближайшему целому</a></li>
-  <li><a href="#smolest-whole">Округление к меньшему</a></li>
-  <li><a href="#bigest-whole">Округление к большему</a></li>
-  <li><a href="#bigest-mod-whole">Округление к меньшему по модулю</a></li>
-  <li><a href="#smolest-mod-whole">Округление к большему по модулю</a></li>
-</ul>
-<div class="chapter">
-  <h4 class="chapter__header" name="closest-whole">Округление к ближайшему целому</h4>
-  <p>
-    Округление к ближайшему целому до N-го знака осуществляется по следующему правилу:
+            B_Round = ROUND(iRnd,n).
+            ChkFor5 = ROUND(((TRUNCATE(iRnd, n + 1) - 
+                              TRUNCATE(iRnd,n)) * EXP(10, n + 1)),0).
+            IF ChkFor5 = 5 THEN 
+            DO:
+                IF ((TRUNCATE(iRnd,n) * EXP(10,n)) MOD 2) = 0 THEN 
+                  B_Round = TRUNCATE(i,n).
+            END.
+            RETURN B_Round.
+          END FUNCTION.
+          </code>
+          </pre>
+          <p>
+          <strong>Случайное округление</strong> осуществляет равновероятное округление числа 5 как в меньшую (N-ый знак остается без изменений) так и в большую (N-ый знак увеличивают на единицу) стороны. Например, в момент округления значения можно генерировать случайное целое число в пределах [0,1]. Если полученное число равно нулю, то округление осуществляется в меньшую сторону, если единице, то в большую.
+          </p>
+          <pre class="code">
+          <code>
+          FUNCTION RandomRound RETURNS DECIMAL (INPUT iRnd AS DEC, INPUT n AS INT).
+            DEF VAR vResult AS DECIMAL NO-UNDO.
+            DEF VAR ChkFor5 AS INTEGER NO-UNDO.
+            DEF VAR vRandom  AS DECIMAL NO-UNDO.
 
-    если N+1 знак < 5, то N-ый знак остается без изменений, а все знаки после N-го отбрасываются (обнуляются);
-    если N+1 знак > 5, то N-ый знак увеличивают на единицу, а все знаки после N-го отбрасываются (обнуляются).
+            vRandom = RANDOM(0,1).
+            vResult = TRUNCATE(iRnd,n).
+            ChkFor5 = ROUND(((TRUNCATE(iRnd, n + 1) - 
+                              TRUNCATE(iRnd,n)) * EXP(10, n + 1)),0).
+            IF ChkFor5 = 5 THEN vResult = vResult + vRandom * EXP(10, - n). 
 
-Примеры округления до 2 знаков после запятой:
-
-2.4545 → 2.45
-2.4564 → 2.46
-
-По способам округления числа в случае когда N+1 знак равен 5, выделяются следующие виды округления к ближайшему целому:
-
-    Математическое округление;
-    Банковское округление;
-    Случайное округление;
-    Чередующееся округление.
-<p>
-<span>Математическое округление</span> в случае если N+1 знак = 5 увеличивает N-й знак на единицу,  а все знаки после N-го отбрасываются (обнуляются). 
-
-Пример математического округления до 2-х знаков после запятой:
-
-2.4554 → 2.46
-
-Данное округление в ABL реализовано в функции ROUND.
-
-ROUND(iRnd, n)
-
-    iRnd - округляемое значение;
-    n - знак до которого осуществляется округление.
-</p>
-<p>
-<span>Банковское округление</span> отличается от математического тем, что предполагает округление в таком случае к ближайшему четному числу. Т.е. результатом округления числа 2.5 при математическом округлении будет 3, а при банковском 2.
-</p>
-<pre>
-<code>
-FUNCTION BankRound RETURNS DECIMAL (INPUT iRnd AS DEC, INPUT n AS INT). 
-   DEF VAR ChkFor5 AS INTEGER NO-UNDO.
-   DEF VAR B_Round AS DECIMAL NO-UNDO.
-
-   B_Round = ROUND(iRnd,n).
-   ChkFor5 = ROUND(((TRUNCATE(iRnd, n + 1) - 
-                     TRUNCATE(iRnd,n)) * EXP(10, n + 1)),0).
-   IF ChkFor5 = 5 THEN 
-   DO:
-      IF ((TRUNCATE(iRnd,n) * EXP(10,n)) MOD 2) = 0 THEN 
-         B_Round = TRUNCATE(i,n).
-   END.
-   RETURN B_Round.
-END FUNCTION.
-</code>
-</pre>
-<p>
-<span>Случайное округление</span> осуществляет равновероятное округление числа 5 как в меньшую (N-ый знак остается без изменений) так и в большую (N-ый знак увеличивают на единицу) стороны. Например, в момент округления значения можно генерировать случайное целое число в пределах [0,1]. Если полученное число равно нулю, то округление осуществляется в меньшую сторону, если единице, то в большую.
-</p>
-<pre>
-<code>
-FUNCTION RandomRound RETURNS DECIMAL (INPUT iRnd AS DEC, INPUT n AS INT).
-   DEF VAR vResult AS DECIMAL NO-UNDO.
-   DEF VAR ChkFor5 AS INTEGER NO-UNDO.
-   DEF VAR vRandom  AS DECIMAL NO-UNDO.
-
-   vRandom = RANDOM(0,1).
-   vResult = TRUNCATE(iRnd,n).
-   ChkFor5 = ROUND(((TRUNCATE(iRnd, n + 1) - 
-                     TRUNCATE(iRnd,n)) * EXP(10, n + 1)),0).
-   IF ChkFor5 = 5 THEN vResult = vResult + vRandom * EXP(10, - n). 
-
-   RETURN vResult.
-END FUNCTION.
-</code>
-</pre>
-<p>
-<span>Чередующееся округление</span> осуществляет округление числа 5 поочередно то в меньшую, то в большую стороны. Данное округление очевидно применимо при необходимости округления массива чисел, а не единичного числа.
-</p>
-  </p>
-</div>
-<div class="chapter">
-  <h4 class="chapter__header" id="smolest-whole">Округление к меньшему</h4>
-</div>
-<div class="chapter">
-  <h4 class="chapter__header" id="bigest-whole">Округление к большему</h4>
-</div>
-<div class="chapter">
-  <h4 class="chapter__header" id="bigest-mod-whole">Округление к большему по модулю</h4>
-</div>
-<div class="chapter">
-  <h4 class="chapter__header" id="smolest-mod-whole">Округление к меньшему по модулю</h4>
-</div>
-
-
+            RETURN vResult.
+          END FUNCTION.
+          </code>
+          </pre>
+          <p>
+          <strong>Чередующееся округление</strong> осуществляет округление числа 5 поочередно то в меньшую, то в большую стороны. Данное округление очевидно применимо при необходимости округления массива чисел, а не единичного числа.
+          </p>
+        </div>
+        <div class="chapter">
+          <h4 class="chapter__header" id="smolest-whole">Округление к меньшему</h4>
+        </div>
+        <div class="chapter">
+          <h4 class="chapter__header" id="bigest-whole">Округление к большему</h4>
+        </div>
+        <div class="chapter">
+          <h4 class="chapter__header" id="bigest-mod-whole">Округление к большему по модулю</h4>
+        </div>
+        <div class="chapter">
+          <h4 class="chapter__header" id="smolest-mod-whole">Округление к меньшему по модулю</h4>
+        </div>
       </section>
     </main>
     <footer class="main-footer">
-      Копия сайта http://www.progress-abl.ru/   2024
+      (2024) Копия сайта http://www.progress-abl.ru/
     </footer>
   </div>
 </body>
