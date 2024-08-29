@@ -155,3 +155,36 @@ a {
 .content-list{
   list-style: none;
 }
+
+.content-header {
+  color: #515756;
+  font-weight: normal;
+  line-height: 1.6;
+  font-size: 180%;
+  text-transform: uppercase;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table td {
+  border: 1px solid black;
+  padding: 4px;
+}
+
+.table th{
+  border: 1px solid black;
+  text-align: center;
+}
+
+.tables-subsection{
+  text-align: center;
+  font-weight: bold;
+}
+
+sub {
+  color: red;
+  font-weight: bold;
+}
