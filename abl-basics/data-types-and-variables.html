@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="keywords" content="OpenEdge,ABL,4GL,Progress, Bisquit, ИБС Бисквит,АБС Бисквит,BIS, БИС,язык программирование ABL, язык программирования 4GL, база данных openedge
+">
+	<meta name="rights" content="progress-abl:2012-2016">
+	<meta name="robots" content="index, follow">
+	<meta name="description" content="Сайт программирования на языке OpenEdge ABL (4GL). Программирование в ИБС Бисквит">
+  <link href="../css/normalize.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+  <title>OpenEdge ABL</title>
+</head>
+<body class="page-body">
+  <div class="page-container">
+    <header class="main-header">
+      <div class="logo">
+        <a href="#" title="progress-abl">OpenEdge ABL</a>
+      </div>
+      <nav class="main-navigation">
+        <ul class="site-navigation">
+          <li class="site-navigation__item"><a class="site-navigation__link" href="../index.html">Главная</a></li>
+          <li class="site-navigation__item"><a class="site-navigation__link" href="../menu/abl-basics.html">Основы ABL</a></li>
+          <li class="site-navigation__item"><a class="site-navigation__link" href="../menu/database.html">Базы данных</a></li>
+          <li class="site-navigation__item"><a class="site-navigation__link" href="../menu/ibs-bisquit.html">ИБС Бисквит</a></li>
+          <li class="site-navigation__item"><a class="site-navigation__link" href="../menu/tech-and-solve.html">Технологии и решения</a></li>
+          <li class="site-navigation__item active"><a class="site-navigation__link" href="../menu/differents.html">Разное</a></li>
+          <li class="site-navigation__item"><a class="site-navigation__link" href="../about-bis/about-bis.html">Про "Бисквит"</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="content-container">
+      <section class="content-container__item useful-links">
+        <h3>Полезные ссылки OpenEdge</h3>
+        <ul class="weblinks">
+          <li>
+          <a href="http://www.oehive.org/" rel="follow"> The OpenEdge Hive</a>		</li>
+          <li>
+          <a href="http://psdn.com/" rel="follow">Progress Communities</a>		</li>
+          <li>
+          <a href="http://www.openedge.ru/" rel="follow">Администрирование OpenEdge</a>		</li>
+          <li>
+          <a href="http://pro4gl.ru/" rel="follow">Всё об OpenEdge RDBMS</a>		</li>
+          <li>
+          <a href="http://forum.csbi-progress.ru/" rel="follow">Форум OpenEdge</a>		</li>
+        </ul>
+        <h3>Полезные ссылки ИБС "Бисквит"</h3>
+        <ul class="weblinks">
+          <a href="http://www.bis.ru/" rel="follow">ИБС "Бисквит"</a>		</li>
+        </ul>
+      </section>
+      <section class="content-container__item main-content">
+        <h3 class="content-header">Типы данных и переменные в ABL</h3>
+        <p>ABL, как и большинство других языков программирования, является строго-типизированным. Это означает, что всем данным, используемым в программе (переменные, поля таблиц), определяется их тип.</p>
+        <ul calss="page-list">
+          <li class="page-list__item"><a href="#data-types">Типы данных</a></li>
+          <li class="page-list__item"><a href="#variables">Переменные</a></li>
+          <li class="page-list__item"><a href="#decimal-type">Переменные DECIMAL, INTEGER И INT64 типов</a></li>
+          <li class="page-list__item"><a href="#date-type">Переменные DATE, DATETIME И DATETIME-TZ типов</a></li>
+          <li class="page-list__item"><a href="#logical-type">Переменные LOGICAL типа</a></li>
+          <li class="page-list__item"><a href="#uncnown-type">Неизвестное значение ?</a></li>
+          <li class="page-list__item"><a href="#user-type">Собственный формат</a></li>
+          <li class="page-list__item"><a href="#undo">Прерывание и откат</a></li>
+        </ul>
+        <h4 class="chapter__header" id="data-types">Типы данных</h4>
+        <p>Тип данных определяет допустимые значения данных, а также совокупность операций над ними. В OpenEdge существуют следующие основные типы данных:</p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Тип данных</th>
+              <th>Описание</th>
+              <th>Диапазон допустимых значений</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>CHARACTER</td>
+              <td>Текстовый</td>
+              <td>Ограничен размером записи 32 килобайт</td>
+            </tr>
+            <tr>
+              <td>LONGCHAR</td>
+              <td>Текстовый</td>
+              <td>Ограничен ресурсами системы</td>
+            </tr>
+            <tr>
+              <td>DECIMAL</td>
+              <td>Вещественный</td>
+              <td>40 знаков до "." и 10 знаков после.</td>
+            </tr>
+            <tr>
+              <td>INTEGER</td>
+              <td>Целочисленный</td>
+              <td>-2<sup>16</sup>... 2<sup>16</sup></td>
+            </tr>
+            <tr>
+              <td>INT64</td>
+              <td>Целочисленный</td>
+              <td>-2<sup>32</sup>... 2<sup>32</sup></td>
+            </tr>
+            <tr>
+              <td>LOGICAL</td>
+              <td>Логический</td>
+              <td>True/False или Yes/No</td>
+            </tr>
+            <tr>
+              <td>DATE</td>
+              <td>Дата</td>
+              <td>01/01/32768 до н.э. – 31/12/32767н.э.</td>
+            </tr>
+            <tr>
+              <td>DATETIME</td>
+              <td>Дата-время</td>
+              <td>Дата: 01/01/32768 до н.э. – 31/12/32767н.э.<br>
+                Время: 00:00:00.000 - 23.59.59.999</td>
+            </tr>
+            <tr>
+              <td>DATETIME-TZ</td>
+              <td>Дата-время-зона</td>
+              <td>Дата: 01/01/32768 до н.э. – 31/12/32767н.э.<br>
+                Время: 00:00:00.000 - 23.59.59.999<br>
+                Зона: -14:00 – +14:00</td>
+            </tr>
+          </tbody>
+        </table>
+        <h4 class="chapter__header" id="variables">Переменные</h4>
+        <p>Переменные представляют собой именованную область памяти для хранения информации. Для каждой переменной должен быть определен тип данных хранимых в ней. Обращение к переменной осуществляется по ее идентификатору (имени), указываемому при ее объявлении.</p>
+        <pre class="code">
+          <code>
+  DEFINE {[[NEW [GLOBAL]] SHARED] |
+          [PRIVATE | PROTECTED | PUBLIC] [STATIC]}
+    VARIABLE variable-name {AS var-datatype
+                            | LIKE field
+                            | LIKE variable}
+    [INITIAL
+      {constant | {[ constant [, constant ] ... ]}}]
+    [LABEL string]
+    [FORMAT string]
+    [DECIMALS n]
+    [EXTENT constant]
+    [NO-UNDO]
+    [[NOT] CASE-SENSITIVE]</code>
+        </pre>
+        <dl>
+          <dt>variable-name</dt>
+          <dd>идентификатор (имя) переменной;</dd>
+          <dt>var-datatype</dt>
+          <dd>тип данных переменной;</dd>
+        </dl>
+        <p>Идентификаторы представляют собой последовательность, которая может состоять из букв латинского алфавита, цифр и спецсимволов (@,#,$,%,*,-,_). Начинаться идентификатор должен строго с буквы. Максимально допустимая длина идентификатора составляет 32 символа.</p>
+        <dl>
+          <dt>INITIAL constant</dt>
+          <dd>определяет начальное значение переменной равное constant.</dd>
+          <dt>FORMAT string</dt>
+          <dd>определяет формат представления значения переменной.</dd>
+          <dt>LABEL string</dt>
+          <dd>определяет метку переменной.</dd>
+        </dl>
+        <p>Переменная может быть описана, подобием поля таблицы с помощью оператора LIKE field, или другой переменной LIKE variable. Объявляемая таким образом переменная принимает все атрибуты того поля или переменной, подобием которой она объявляется.</p>
+        <p>Если при объявлении переменной не были указаны ее формат и начальное значение, то они принимают значения по умолчанию согласно таблице, а значение LABEL принимается равным идентификатору переменной.</p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Тип</th>
+              <th>Формат</th>
+              <th>Начальное значение по умолчанию</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>CHARACTER</td>
+              <td>"x(8)"</td>
+              <td>""</td>
+            </tr>
+            <tr>
+              <td>LONGCHAR</td>
+              <td></td>
+              <td>""</td>
+            </tr>
+            <tr>
+              <td>DECIMAL</td>
+              <td>->>,>>9.99</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>INTEGER</td>
+              <td>->,>>>,>>9</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>INT64</td>
+              <td>->,>>>,>>9</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>LOGICAL</td>
+              <td>YES/NO</td>
+              <td>NO</td>
+            </tr>
+            <tr>
+              <td>DATE</td>
+              <td>99/99/99</td>
+              <td>? (неизвестное значение)</td>
+            </tr>
+            <tr>
+              <td>DATETIME</td>
+              <td>99/99/9999 HH:MM:SS.SSS</td>
+              <td>? (неизвестное значение)</td>
+            </tr>
+            <tr>
+              <td>DATETIME-TZ</td>
+              <td>99/99/9999 HH:MM:SS.SSS+HH:MM</td>
+              <td>? (неизвестное значение)</td>
+            </tr>
+          </tbody>
+        </table>
+        <dl>
+          <dt>EXTENT constant</dt>
+          <dd>определяет переменную, как одномерный массив размера constant.</dd>
+        </dl>
+        <p>Стоит заметить, что в ABL возможно объявление исключительно только одномерных массивов.</p>
+        <p>Начальные значения элементов массива могут быть заданы с помощью опции INITIAL, в которой указывается список значений элементов массива с разделителем запятая. Порядковый номер каждого значения в списке соответствует порядковому номеру элемента массива, которому оно присваивается. Следовательно, количество элементов в списке не может превышать размер массива.</p>
+        <p>
+          Обращение к элементам массива осуществляется по имени переменной и порядковому номеру, указываемому в квадратных скобках:
+        </p>
+        <p>variable-name[i]</p>
+        <pre class="code">
+          <code>
+  DEF VAR vWeek AS CHAR 
+    EXTENT 7 
+    INITIAL ["Пн","Вт","Ср","Чт","Пт","Сб","Вс"]
+    NO-UNDO.
+        
+  DISPLAY vWeek[3].</code>
+        </pre>
+        <p>Нумерация элементов массива, в отличии от некоторых других языков программирования, начинается с единицы, а не с нуля. </p>
+        <p>Аналогичным образом осуществляется присвоение и изменение значений элементов массива:</p>
+        <pre class="code">
+          <code>
+  DEF VAR vWeek AS CHAR EXTENT 7.
+  vWeek[1] = "Пн".
+  vWeek[2] = "Вт".
+  ...</code>
+        </pre>
+
+        <h4 class="chapter__header" id="decimal-type">Переменные DECIMAL, INTEGER И INT64 типов</h4>
+        <p>Числовое значение в OpenEdge может быть представлено в европейском или американском форматах. Данное представление определяется стартовым параметром -E для европейского представления числа, а в случае отсутствия указания данного параметра американским форматом.</p>
+        <p>Американский формат представления числа: 1,234,567.89
+          <br>
+          Европейский формат представления числа: 1.234.567,89</p>
+        <p>Данное представление может быть изменено в рамках сессии с помощью атрибута сессии NUMERIC-FORMAT.</p>
+        <pre class="code">
+          <code>
+  DEF VAR vNum AS DECIMAL INIT 12345.67.
+  SESSION:NUMERIC-FORMAT = "AMERICAN".
+  DISPLAY vNum.</code>
+        </pre>
+        <p>Результат: 12,345.67</p>
+        <pre class="code">
+          <code>
+  DEF VAR vNum AS DECIMAL INIT 12345.67.
+  SESSION:NUMERIC-FORMAT = "EUROPEAN".
+  DISPLAY vNum.</code>
+        </pre>
+        <p>Результат: 12.345,67</p>
+        <p>Аналогично представление для целочисленных значений:</p>
+        <pre class="code">
+          <code>
+  DEF VAR vNum AS INTEGER INIT 12345.
+  SESSION:NUMERIC-FORMAT = "AMERICAN".
+  DISPLAY vNum.</code>
+        </pre>
+        <p>Результат: 12,345</p>
+        <pre class="code">
+          <code>
+  DEF VAR vNum AS INTEGER INIT 12345.
+  SESSION:NUMERIC-FORMAT = "EUROPEAN".
+   DISPLAY vNum.</code>
+        </pre>
+        <p>Результат: 12.345</p>
+        <p>Указать количество знаков после запятой переменной DECIMAL типа можно не только с помощью соответствующего формата, но и с помощью атрибута DECIMALS n, где n – количество знаков.</p>
+        <pre class="code">
+          <code>
+  DEF VAR dMoney AS DEC FORMAT   ">>9.999" NO-UNDO.
+  DEF VAR dMoney AS DEC DECIMALS 3         NO-UNDO.</code>
+        </pre>
+        <p>Разделитель дробной и целой части в указании формата всегда - точка, независимо от европейского или американского представления числа.</p>
+        <p>С помощью указания формата возможно отключение разбиение на разряды существующее по умолчанию:</p>
+        <pre class="code">
+          <code>
+  DEF VAR iCount AS INTEGER NO-UNDO.
+  iCount = 12000001.
+  DISPL iCount.</code>
+        </pre>
+        <p>Результат: 12,000,001</p>
+        <pre class="code">
+          <code>
+  DEF VAR iCount AS INTEGER FORMAT "99999999" NO-UNDO.
+  iCount = 12000001.
+  DISPL iCount.</code>
+        </pre>
+        <p>Результат: 12000001</p>
+        <p>В случае если переменной INTEGER типа присваивается дробное значение, результатом будет являться округленное до целого присваиваемое значение.</p>
+        <pre class="code">
+          <code>
+  DEF VAR i AS INTEGER NO-UNDO.
+  i = 34.6.
+  DISPLAY i.</code>
+        </pre>
+        <p>Результат: 35</p>
+
+        <h4 class="chapter__header" id="date-type">Переменные DATE, DATETIME И DATETIME-TZ типов</h4>
+        <p>Формат представления дат в OpenEdge определяется форматом указываемом в стартовом параметре -d. Формат даты определенный параметром -d влияет исключительно на отображение дат, запись даты в базу данных, или в память при присвоении переменной, независимо от этого, всегда будет осуществляться в формате mm/dd/yy.</p>
+        <p>В рамках сессии формат представления последовательности следования день/месяц/год в датах может быть изменен с помощью атрибута сессии DATE-FORMAT. </p>
+        <p>Для установки последовательности для текущей сессии год,месяц,день:</p>
+        <pre class="code">
+          <code>
+  SESSION:DATE-FORMAT = "YMD".</code>
+        </pre>
+        <p>С помощью атрибута переменной FORMAT можно задавать разделитель и число символов в представлении года.</p>
+        <pre class="code">
+          <code>
+  DEF VAR dBeg-date AS DATE FORMAT "99-99-99".
+  DEF VAR dEnd-date AS DATE FORMAT "99-99-9999".</code>
+        </pre>
+        <p>Представление года четырехзначным значением определяется параметром -yy. В данном параметре указывается начальное четырехзначное значение года от которого осуществляется отсчет столетнего периода в рамках которого осуществляется определение четырехзначного значения года соответствующего указанному двузначному значению.</p>
+        <img src="../img/year.jpg">
+        <p>В рамках сессии начальное значение года может быть изменено с помощью атрибута сессии YEAR-OFFSET</p>
+        <pre class="code">
+          <code>
+  DEF VAR vDate AS DATE FORMAT "99/99/9999" NO-UNDO.
+  SESSION:YEAR-OFFSET = 1950.
+  vDate = 08/21/67.
+  DISPL vDate.</code>
+        </pre>
+        <p>Результат: 21/08/1967</p>
+        <pre class="code">
+          <code>
+  DEF VAR vDate AS DATE FORMAT "99/99/9999" NO-UNDO.
+  SESSION:YEAR-OFFSET = 1950.
+  vDate = 08/21/12.
+  DISPL vDate.</code>
+        </pre>
+        <p>Результат: 21/08/2012</p>
+        <p>В ABL существует два типа данных дата-время: DATETIME и DATETIME-TZ. Формат дата-время DATETIME состоит из двух частей - это дата и время. DATETIME-TZ в сравнении с DATETIME содержит еще смещение времени временной зоны.</p>
+        <pre class="code">
+          <code>
+  DEF VAR vDateTime AS DATETIME NO-UNDO.
+  vDateTime = NOW.
+  DISPL vDateTime.</code>
+        </pre>
+        <p>Результат: 05/07/2013 16:05:24.315</p>
+        <pre class="code">
+          <code>
+  DEF VAR vDateTime AS DATETIME-TZ NO-UNDO.
+  vDateTime = NOW.
+  DISPL vDateTime.</code>
+        </pre>
+        <p>Результат: 05/07/2013 16:05:24.315+04:00</p>
+        <p>Возможны следующие форматы представления части содержащей время:<br>
+          "HH"<br>
+          "HH:MM"<br>
+          "HH:MM:SS"<br>
+          "HH:MM:SS.SSS"<br>
+          "HH:MM:SS.SSS AM"<br>
+          "HH:MM:SS.SSS+HH:MM"<br>
+          "HH:MM:SS.SSS AM+HH:MM"
+        </p>
+        <p>При наличии в формате времени "A" или "a"  время будет выводиться в формате 12 часов, в противном случае в формате 24 часа.</p>
+
+        <h4 class="chapter__header" id="logical-type">Переменные LOGICAL типа</h4>
+        <p>Переменные LOGICAL типа могут принимать три значения: TRUE (ИСТИНА), FALSE(ЛОЖЬ) и неизвестное значение - ?.</p>
+        <p>С помощь формата LOGICAL переменной можно трансформировать представление (отображение) значений TRUE/FALSE в иные схожие значения, например определяющие пол M/F (М/Ж).</p>
+        <pre class="code">
+          <code>
+  DEF VAR vLog AS LOGICAL FORMAT "M/F" NO-UNDO.
+  vLog = TRUE.
+  DISPL vLog.</code>
+        </pre>
+        <p>Результат: M</p>
+        <p>Формат переменной LOGICAL представляет собой два значения, разделенных символом "/". Первое значение в формате соответствует значению TRUE, второе - значению FALSE.</p>
+
+        <h4 class="chapter__header" id="uncnown-type">Неизвестное значение ?</h4>
+        <p>Неизвестное значение применяется для указания пустого значения. Если в базе данных у ряда записей поле дата (например, с именем fDate) просто отсутствует (не заполнено) и мы хотим отобрать такие записи, то сравнение fDate = "" вызовет ошибку несовместимости типов, так как таким образом мы как бы сравниваем тип DATE с типом CHARACTER. Поэтому, для указания пустого значения применяется неизвестное значение ?, являющееся аналогом значения null в других языках программирования. Выражение fDate = ? уже не будет вызывать подобной ошибки.</p>
+
+        <h4 class="chapter__header" id="user-type">Собственный формат</h4>
+        <p>Помимо стандартных форматов, переменной любого типа может быть задан формат созданный самим разработчиком:</p>
+        <pre class="code">
+          <code>
+  DEF VAR cMoney AS DEC FORMAT "$ >>>9.99 USD" NO-UNDO.
+  cMoney = 123.78.
+  DISPL cMoney.</code>
+        </pre>
+        <p>Результат $ 123.78 USD</p>
+
+        <h4 class="chapter__header" id="undo">Прерывание и откат</h4>
+        <p>Если при выполнении какого-либо программного блока, в котором некой переменной присваивалось новое значение, произойдет прерывание, вызванное либо сбоем, либо действиями пользователя, то по умолчанию произойдет откат значения данной переменной на предыдущее, т.е. новое присвоение значения не произойдет. За данное действие отвечает параметр UNDO. Согласно ProgressCodingStandardsManual автор chris@fast4gl.com" Schreiber Fast 4gl systems, inc., все переменные должны быть объявлены как NO-UNDO (отменяющему откат значения переменной в случае прерывания). Согласно той же статье при выборе идентификатора переменной следует пользоваться префиксами и суффиксами для отличия идентификаторов переменных от идентификаторов полей баз данных. При объявлении переменной как подобие поля базы данных (LIKE), в идентификаторе переменной должно звучать наименование поля подобием которого является данная переменная.</p>
+      </section>
+    </main>
+    <footer class="main-footer">
+      (2024) Копия сайта http://www.progress-abl.ru/
+    </footer>
+  </div>
+</body>
+</html>
